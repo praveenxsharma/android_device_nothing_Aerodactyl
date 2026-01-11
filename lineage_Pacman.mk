@@ -24,3 +24,24 @@ PRODUCT_BUILD_PROP_OVERRIDES += \
     DeviceProduct=Pacman \
     SystemDevice=Pacman \
     SystemName=Pacman
+
+PRODUCT_SYSTEM_PROPERTIES += \
+    ro.mist.display=1084x2412_120 hz \
+    ro.mist.battery=5000mah \
+    ro.mist.soc=Mediatek_Dimensity_7200_pro \
+    ro.mist.camera=50+50MP \
+    ro.mist.front=32MP \
+    ro.mist.platform=MT6886 \
+    ro.mist.screen=6.7'_Flexible_Amoled \
+    ro.mist.device.name=Nothing_Phone_2a \
+
+#Build
+
+MISTOS_MAINTAINER := itachi
+WITH_GMS := true
+TARGET_USES_PICO_GAPPS := false
+TARGET_ENABLE_BLUR := true
+TARGET_SUPPORTS_QUICK_TAP := true
+BYPASS_CHARGE_SUPPORTED := false
+TARGET_DEFAULT_PIXEL_LAUNCHER := false
+TARGET_DISABLE_EPPE := true
