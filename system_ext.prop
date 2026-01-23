@@ -32,3 +32,15 @@ media.stagefright.thumbnail.prefer_hw_codecs=true
 wifi.direct.interface=p2p0
 wifi.interface=wlan0
 wifi.tethering.interface=ap0
+
+#Mist Os
+ro.mist.display=1084x2412 120 hz \
+ro.mist.battery=5000mah \
+ro.mist.soc=Mediatek Dimensity 7200 pro \
+ro.mist.camera=50+50MP \
+ro.mist.front=32MP \
+ro.mist.platform=MT6886 \
+ro.mist.screen=6.7' Flexible Amoled \
+ro.mist.device.name=Nothing Phone 2a \
+
+
