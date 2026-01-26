@@ -8,6 +8,7 @@ on early-init
     write /sys/class/devfreq/mtk-dvfsrc-devfreq/userspace/set_freq 4266000000
 
 on init
+<<<<<<< HEAD
     # Make foreground and background I/O priority different. none-to-rt was
     # introduced in kernel 5.14. promote-to-rt was introduced in kernel 6.5.
     # Write none-to-rt first and promote-to-rt next to support both older and
@@ -23,6 +24,8 @@ on init
     write /dev/sys/block/by-name/rootdisk/queue/iostats 0
     write /dev/sys/block/by-name/rootdisk/queue/nr_requests 256
 
+=======
+>>>>>>> parent of 45a531d (Aerodactyl: init: Make foreground and background I/O priority different)
     # UFS
     write /sys/devices/platform/soc/112b0000.ufshci/clkgate_enable 0
 
