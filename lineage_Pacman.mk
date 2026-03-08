@@ -60,6 +60,7 @@ BYPASS_CHARGE_SUPPORTED := false
 
 # GMS
 WITH_GMS := true
+TARGET_USES_MINI_GAPPS := true
 
 # Mist OS Flags
 MISTOS_MAINTAINER := Praveen_Sharma
