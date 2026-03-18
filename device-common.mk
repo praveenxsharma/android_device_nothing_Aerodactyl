@@ -410,8 +410,6 @@ PRODUCT_COPY_FILES += \
 
 #NothingGallery
 PRODUCT_PACKAGES += \
-    Dialer \
-    DialerOverlay \
     NothingGallery \
     NothingStub \
     libaipasserbysegmentation \
