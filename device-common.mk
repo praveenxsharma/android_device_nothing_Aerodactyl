@@ -408,5 +408,33 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.wifi.rtt.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.wifi.rtt.xml \
     frameworks/native/data/etc/android.hardware.wifi.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.wifi.xml
 
+#NothingGallery
+PRODUCT_PACKAGES += \
+    Dialer \
+    DialerOverlay \
+    NothingGallery \
+    NothingStub \
+    libaipasserbysegmentation \
+    libaiphotoeraser \
+    libandroidx.graphics.path \
+    libcore \
+    libcvface_api \
+    libdata_crypto \
+    libeyeglassreflectionreduction \
+    libflarereduction \
+    libglide-webp \
+    libjni_classifier_api \
+    libjni_cvface_api \
+    libmedia_editor \
+    libmlkitcommonpipeline \
+    libscenesegmentation \
+    libstmobile_classifier \
+    libtensorflowlite_jni_gms_client \
+    libtiff \
+    libtiffconverter \
+    libtifffactory \
+    libtiffsaver \
+    libwindowreflectionreduction
+
 # Inherit the proprietary files
 $(call inherit-product, vendor/nothing/Aerodactyl/Aerodactyl-vendor.mk)
