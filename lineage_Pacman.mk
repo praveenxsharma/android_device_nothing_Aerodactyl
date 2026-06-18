@@ -24,3 +24,49 @@ PRODUCT_BUILD_PROP_OVERRIDES += \
     DeviceProduct=Pacman \
     SystemDevice=Pacman \
     SystemName=Pacman
+
+# Maintainer
+MATRIXX_MAINTAINER := Praveen
+
+# Matlog for taking logs
+TARGET_INCLUDE_MATLOG := false
+
+# Device supports UDFPS
+TARGET_CUSTOM_UDFPS := true
+
+# GMS 
+WITH_GMS := true
+WITH_EXTRA_GAPPS := true 
+
+WITH_GMS_COMMS_SUITE := false
+WITH_GMS_AICORE := true 
+
+# Pixel launcher
+TARGET_INCLUDE_PIXEL_LAUNCHER := true 
+TARGET_DEFAULT_PIXEL_LAUNCHER := true 
+
+# Basic call recorder
+WITH_BCR := false
+
+# surfaceflinger min max
+$(call soong_config_set,surfaceflinger,frame_rate_category_high,120)
+$(call soong_config_set,surfaceflinger,frame_rate_category_min,60)
+
+# SF boost 
+SURFACE_FLINGER_BOOST := true
+
+# Optimized dexopt
+TARGET_OPTIMIZED_DEXOPT := true
+
+# Bypass charging
+BYPASS_CHARGE_SUPPORTED := false
+
+# HBM mode
+HBM_SUPPORTED := true
+HBM_NODE := /sys/panel_feature/hbm_mode
+
+# features
+USE_REALITY_ENGINE := false
+
+# camera
+PRODUCT_NO_CAMERA := true
