@@ -4,6 +4,6 @@
 //
 
 runtime_resource_overlay {
-    name: "NothingTelephonyResTarget",
-    device_specific: true,
+    name: "NothingLauncher3ResTarget",
+    product_specific: true,
 }

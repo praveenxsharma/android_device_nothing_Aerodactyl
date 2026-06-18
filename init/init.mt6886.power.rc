@@ -3,7 +3,7 @@ on early-init
     write /sys/devices/system/cpu/cpufreq/policy0/scaling_governor "performance"
     write /sys/devices/system/cpu/cpufreq/policy6/scaling_governor "performance"
     write /sys/devices/system/cpu/cpufreq/policy0/scaling_min_freq 2000000
-    write /sys/devices/system/cpu/cpufreq/policy6/scaling_min_freq 2300000
+    write /sys/devices/system/cpu/cpufreq/policy6/scaling_min_freq 2800000
 
     write /sys/class/devfreq/mtk-dvfsrc-devfreq/userspace/set_freq 4266000000
 
@@ -119,10 +119,13 @@ on property:sys.boot_completed=1
 
     # zram
     swapon_all /vendor/etc/fstab.enableswap
-    write /proc/sys/vm/swappiness 60
 
     # Adjust watermark level
     write /proc/sys/vm/watermark_scale_factor 200
+
+    # Back to default VM settings
+    write /proc/sys/vm/dirty_expire_centisecs 3000
+    write /proc/sys/vm/dirty_background_ratio 10
 
     # restore boot perf. tune
     write /sys/devices/system/cpu/cpufreq/policy0/scaling_governor "schedutil"
@@ -130,6 +133,10 @@ on property:sys.boot_completed=1
     write /sys/devices/system/cpu/cpufreq/policy0/scaling_min_freq 0
     write /sys/devices/system/cpu/cpufreq/policy6/scaling_min_freq 0
     write /sys/class/devfreq/mtk-dvfsrc-devfreq/userspace/set_freq 0
+
+    # dex2oat settings
+    setprop dalvik.vm.dex2oat-cpu-set 0,1,2,3,4,5,6
+    setprop dalvik.vm.dex2oat-threads 6
 
     # Utilization Clamping
     # Tuning

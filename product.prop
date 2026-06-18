@@ -19,8 +19,25 @@ bluetooth.profile.pan.panu.enabled=true
 bluetooth.profile.pbap.server.enabled=true
 bluetooth.profile.sap.server.enabled=true
 
+# F2FS
+persist.fsck.disable_linear_lookup=on
+
 # FUSE
 persist.sys.fuse.passthrough.enable=true
+
+# MMD
+mm.zram.maintenance.first_delay_seconds=86400
+mm.zram.maintenance.periodic_delay_seconds=86400
+mmd.zram.enabled=true
+mmd.zram.comp_algorithm=lz4
+mmd.zram.size=75%
+mmd.zram.writeback.device_size=1073741824
+mmd.zram.writeback.enabled=true
+mmd.zram.writeback.huge_idle.enabled=false
+mmd.zram.writeback.idle.enabled=true
+mmd.zram.writeback.limit.enabled=false
+mmd.zram.writeback.max_idle_seconds=86400
+mmd.zram.writeback.min_idle_seconds=0
 
 # RKP
 remote_provisioning.hostname=remoteprovisioning.googleapis.com
@@ -29,3 +46,6 @@ remote_provisioning.strongbox.rkp_only=1
 
 # Voice assitant
 ro.opa.eligible_device=true
+
+# zRAM
+ro.zram_backing_device_min_free_mb=1536

@@ -70,6 +70,9 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/audio/usb_audio_accessory_only_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/usb_audio_accessory_only_policy_configuration.xml
 
 PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/permissions/privapp-permissions-com.android.hotwordenrollment.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/privapp-permissions-com.android.hotwordenrollment.xml
+
+PRODUCT_COPY_FILES += \
     frameworks/av/services/audiopolicy/config/audio_policy_volumes.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_volumes.xml \
     frameworks/av/services/audiopolicy/config/bluetooth_audio_policy_configuration_7_0.xml:$(TARGET_COPY_OUT_VENDOR)/etc/bluetooth_audio_policy_configuration.xml \
     frameworks/av/services/audiopolicy/config/default_volume_tables.xml:$(TARGET_COPY_OUT_VENDOR)/etc/default_volume_tables.xml \
@@ -170,6 +173,10 @@ PRODUCT_PACKAGES += \
 
 # Init
 PRODUCT_PACKAGES += \
+    init.ethtooloffloading.rc \
+    init.ethtooloffloading.sh
+
+PRODUCT_PACKAGES += \
     fstab.enableswap \
     fstab.mt6886 \
     fstab.mt6886.vendor_ramdisk \
@@ -198,6 +205,13 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.keystore.app_attest_key.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.keystore.app_attest_key.xml \
     frameworks/native/data/etc/android.software.device_id_attestation.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.device_id_attestation.xml
+
+# LiveDisplay
+PRODUCT_PACKAGES += \
+    vendor.lineage.livedisplay-service.sysfs
+
+$(call soong_config_set_bool,livedisplay_sysfs,enable_se,true)
+$(call soong_config_set,livedisplay_sysfs,se_path,/sys/panel_feature/hbm_mode)
 
 # Media
 PRODUCT_COPY_FILES += \
@@ -240,15 +254,15 @@ PRODUCT_BOOT_JARS += \
     nt-fwk.Aerodactyl
 
 # Overlays
+$(call inherit-product, hardware/mediatek/overlay/mssi.mk)
+
 PRODUCT_PACKAGES += \
     NothingCarrierConfigResTarget \
     NothingFrameworksResTarget \
-    NothingNetworkStackResTarget \
+    NothingLauncher3ResTarget \
     NothingNfcResTarget \
     NothingSettingsResTarget \
-    NothingSystemUIResTarget \
-    NothingTelephonyResTarget \
-    NothingWifiResTarget
+    NothingSystemUIResTarget
 
 PRODUCT_PACKAGES += \
     NcmTetheringOverlay
@@ -341,6 +355,11 @@ PRODUCT_SOONG_NAMESPACES += \
     hardware/mediatek \
     hardware/mediatek/libmtkperf_client \
     hardware/mediatek/wlan/wifi_hal
+
+# Task Profiles
+PRODUCT_COPY_FILES += \
+    system/core/libprocessgroup/profiles/task_profiles.json:$(TARGET_COPY_OUT_VENDOR)/etc/task_profiles.json \
+    system/core/libprocessgroup/profiles/cgroups.json:$(TARGET_COPY_OUT_VENDOR)/etc/cgroups.json
 
 # Thermal
 PRODUCT_PACKAGES += \
